@@ -40,6 +40,11 @@ if (!app.requestSingleInstanceLock()) {
   app.quit();
 }
 
+// Hide app on macOS dock
+if (process.platform === 'darwin') {
+  app.dock.hide();
+}
+
 /**
  * Create context menu for tray based on connection status
  *
